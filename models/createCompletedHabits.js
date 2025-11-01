@@ -9,6 +9,9 @@ const mongouri = 'mongodb://localhost:27017/habitTraker';
 export async function completedHabit( req,res){
   const token = req.cookies.Token;
   const verify = jwt.verify(token ,"secretCode")
+  
+  
+  console.log(req.body)
   console.log(verify)
    mongoose.connect(mongouri)
 
@@ -17,12 +20,11 @@ export async function completedHabit( req,res){
  
 console.log(userdataid)
  
-const userd= '6905a082f6e9b5dc81e1cc33';
   const completedhabitdata=  new habitcompleted({
   
   
     userId: userdataid._id,
-     habitId: userd
+     habitId: req.body.habitId
 
     })
 

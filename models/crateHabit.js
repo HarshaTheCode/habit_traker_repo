@@ -21,7 +21,9 @@ console.log(userdataid)
     
     userId: userdataid._id,
     habit:req.body.habit,
-        isActive: "true"
+        isActive: "true",
+        frequency:req.body.frequency
+
         
     })
 

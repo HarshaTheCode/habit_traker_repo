@@ -16,8 +16,28 @@ async function fetchHabits() {
     habits.forEach(habit => {
         const listItem = document.createElement('li');
         listItem.className = 'lists';
-        listItem.textContent = habit.habit; // Adjust according to your data structure
+        listItem.textContent = habit.habit;// Adjust according to your data structure
+        
+
+        const form = document.createElement('form');
+        form.setAttribute('action', '/habitcompleted'); 
+        form.setAttribute('method', 'POST'); 
+        
+        const hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'habitId'); 
+        hiddenInput.setAttribute('value', habit._id); 
+
+        const button = document.createElement('button');
+        button.setAttribute('type', 'submit'); 
+        button.textContent = 'Complete Habit'; 
+        button.classList.add('complete-button');
+        
+        
         habitsList.appendChild(listItem);
+        habitsList.appendChild(form)
+        form.appendChild(hiddenInput)
+        form.appendChild(button)
     });
 }
 
