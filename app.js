@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use('/',routes)
 
+app.use(express.static('public')); // This line serves static files from the 'public' directory
 
 app.listen('3000', () => {
     console.log("app was  Running at http://localhost:3000/")

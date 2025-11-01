@@ -5,6 +5,7 @@ import { createHabit } from '../models/crateHabit.js'
 import { findpassword, finduser } from '../models/findingUser.js';
 import jwt from 'jsonwebtoken'
 import { completedHabit } from '../models/createCompletedHabits.js';
+import { habitsfetching } from '../models/habitsfeching.js';
 
 
 export const routes = express.Router();
@@ -25,6 +26,7 @@ routes.get('/register', (req, res) => {
 
 routes.get('/login', (req, res) => {
     const filepath = path.join(__dirname, '../public', 'login.html')
+    res.clearCookie("Token")
     res.sendFile(filepath)
 })
 
@@ -49,22 +51,25 @@ routes.post('/login', async (req, res) => {
                 
                     res.cookie("Token",token)
 
-            const filepath = path.join(__dirname, '../public', 'homepage.html')
-            res.sendFile(filepath)
+            res.redirect('/home')
         }
         else {
-            const filepath = path.join(__dirname, '../public', '404.html')
-            res.sendFile(filepath)
+          
+            res.redirect('/404')
 
         }
     } else {
-        const filepath = path.join(__dirname, '../public', '404.html')
-        res.sendFile(filepath)
+        res.redirect('/404')
 
     }
 
 
 
+})
+
+routes.get('/404',(req,res)=>{
+    const filepath = path.join(__dirname, '../public', '404.html')
+        res.sendFile(filepath)
 })
 
 routes.post('/create', async (req, res) => {
@@ -107,4 +112,9 @@ routes.post('/habitcompleted',(req,res)=>{
 
     completedHabit(req,res);
     res.send("habit completed")
+})
+
+routes.get('/habitsData', async(req,res)=>{
+    const ids= await habitsfetching(req,res);
+      res.send(ids)
 })
