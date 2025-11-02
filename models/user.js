@@ -8,7 +8,7 @@ const Monogschema = mongoose.Schema({
         {
 
             type: mongoose.Schema.Types.ObjectId, // reference to the user
-            ref: 'user',
+            ref: 'habits',
         } 
         ]
 })

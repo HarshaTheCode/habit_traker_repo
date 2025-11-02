@@ -31,12 +31,28 @@
 
         <ul class="habitslist">
             <li class="lists"></li>
-            <form action="">
+            <form action=""> 
                 <button></button>
             </form>
         </ul>
 
     </div>
+
+    <div class="analytics">
+                
+        <form action="/any" method="POST">
+            <!--we added the input hear becasuse with out any input the html making an get 
+            request to the broweser so we  added an input and we made it hidden   -->
+            <input type="hidden" name="something" >
+            
+            <button type="submit">post </button>
+        </form>
+    </div>
+
+    <h1>Today's Habit Completions</h1>
+<div id="completionList">Loading...</div> 
+
+
 <script src="./homepage.js"></script>
 
 </body> 

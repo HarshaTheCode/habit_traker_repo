@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 const completedHabitSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User", // reference to the user who completed it
+    ref: "user", // reference to the user who completed it
     required: true,
   },
   habitId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Habit", // reference to the habit completed
+    ref: "habits", // reference to the habit completed
     required: true,
   },
   completedAt: {

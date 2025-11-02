@@ -6,10 +6,12 @@ import { findpassword, finduser } from '../models/findingUser.js';
 import jwt from 'jsonwebtoken'
 import { completedHabit } from '../models/createCompletedHabits.js';
 import { habitsfetching } from '../models/habitsfeching.js';
+import { getDailyAnalytics } from '../models/anayletics.js';
 
 
 export const routes = express.Router();
 const __dirname = import.meta.dirname;
+
 
 
 
@@ -116,5 +118,14 @@ routes.post('/habitcompleted',(req,res)=>{
 
 routes.get('/habitsData', async(req,res)=>{
     const ids= await habitsfetching(req,res);
-      res.send(ids)
+    res.send(ids)
 })
+
+// Add this alongside your existing GET route
+routes.get('/any', async(req,res)=>{
+  console.log("data fetching from POST")
+    const info =await getDailyAnalytics(req,res);
+    const completions ={count:info.length};
+    console.log({info, completions})
+  res.send({info, completions})
+});

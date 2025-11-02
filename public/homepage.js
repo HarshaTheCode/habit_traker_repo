@@ -43,3 +43,64 @@ async function fetchHabits() {
 
 // Call the function when page loads
 document.addEventListener('DOMContentLoaded', fetchHabits);
+
+
+
+
+
+
+async function fetchCompletions() {
+  
+    // 👇 Update your backend URL and email if needed
+    const res = await fetch('/any');
+    const data = await res.json();
+
+    const list = document.getElementById("completionList");
+    list.innerHTML = ""; // clear old data
+
+    
+  
+
+    // Display total completions
+    const total = document.createElement("h3");
+    total.textContent = `Total completions: ${data.completions.count}`;
+    list.appendChild(total);
+
+    // Loop through each completion
+    data.info.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const habit = document.createElement("div");
+      habit.className = "habit";
+      habit.textContent = `Habit: ${item.habit.habit}`;
+
+      const freq = document.createElement("div");
+      freq.textContent = `Frequency: ${item.habit.frequency}`;
+
+      const user = document.createElement("div");
+      user.textContent = `User: ${item.user.username}`;
+
+      const date = document.createElement("div");
+      date.className = "date";
+      date.textContent = `Completed at: ${new Date(item.completedAt).toLocaleString()}`;
+
+      const brake=document.createElement("hr")
+
+
+      card.appendChild(habit);
+      card.appendChild(freq);
+      card.appendChild(user);
+      card.appendChild(date);
+      list.appendChild(card);
+      list.appendChild(brake);
+
+
+
+    });
+
+  } 
+
+
+// Call function on page load
+document.addEventListener('DOMContentLoaded', fetchCompletions());
