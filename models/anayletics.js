@@ -32,7 +32,7 @@ export const getDailyAnalytics = async (req, res) => {
         as: "user"
       }
     },
-    { $unwind: "$user" }, // only completions for this email survive
+    { $unwind: "$user" }, 
 
     // lookup habit
     {

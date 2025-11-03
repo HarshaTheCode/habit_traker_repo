@@ -1,0 +1,146 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.login {
+  width: 400px;
+  background: rgba(0, 0, 0, 0.87);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 20px;
+    box-shadow: 0px 0px 30px 6px rgba(255, 255, 255, 0.226);
+  box-sizing: border-box;
+  position: relative;
+    font-family: Inter, sans-serif;
+    z-index: 1;
+}
+
+.login p:first-of-type {
+    color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+    color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.data-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.username-control,
+.pass-control {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+    color: white;
+  margin-bottom: 5px;
+  
+    font-family: Inter, sans-serif;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #5555;
+  outline: none;
+  font-size: 16px;
+  background-color: rgba(9, 9, 9, 0.8);
+  color: #333;
+  transition: 0.3s ease;
+  
+    font-family: Inter, sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: rgb(234, 234, 234);
+  box-shadow: 0 0 0 2px #030303;
+}
+
+.user-err,
+.pass-err {
+  color: #ff0000;
+  font-size: 13px;
+  margin-top: 4px;
+  height: 16px;
+  /* Reserve space to prevent layout shift */
+}
+
+.btn-control {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.submit-btn {
+    margin-top: 30px  ;
+  width: 40%;
+  padding: 10px ;
+  font-size: 16px;
+  font-weight: 600;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: 2px solid #333;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+
+.submit-btn:hover,
+ .Sign-up-btn:hover {
+  background: #ffffff;
+  
+  color: rgb(4, 4, 4);
+}
+
+.or{
+ 
+    color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 29px;
+  margin-bottom: 0px;
+  padding: 0;
+
+}
+
+.Sign-up-btn{
+margin-top: 30px;
+  width: 40%;
+  padding: 10px ;
+  font-size: 16px;
+  font-weight: 600;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: 2px solid #333;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}

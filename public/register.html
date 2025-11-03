@@ -2,19 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hatbit Traker</title>
+  <title>Sign up</title>
+    <link rel="stylesheet" href="register.css">
 </head>
 <body>
-    
-    <form action="/create" method="post">  
-        <label for="username">Username :</label>
-        <input type="text" id="username" name="username" placeholder="your username">
-        <label for="userEmail">Email </label>
-        <input type="email" name="userEmail"  id="userEmail" placeholder="your Email gose hear" >
-        <label for="userPassword"  >Password</label>
-        <input type="password" name="userPassword" id="userPassword" placeholder="your password gose hear ">
-        <input type="submit" class="submit" id="submit" value="submit">
-    </form>
+    <div class="login-section">
+
+        <form action="/create" method="post" class="form">
+        <div class="login">
+             <h1>Sign up</h1>
+                <p>   Signup in to continue   </p>
+                <div class="username-control">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="field-container email-control">
+                    <label for="userEmail">Email:</label>
+                    <input type="email" name="userEmail"  id="userEmail" placeholder="User Email">
+                </div>
+                <div class="pass-control">
+                    <label for="userPassword">Password:</label>
+                    <input type="password" name="userPassword" id="userPassword" placeholder="User Password">
+                </div>
+           <div class="btn-control">
+                    <button type="submit" class="submit-btn">Sign up</button>
+                    <span class="or"> or </span>
+                    <!-- insted of writing the event listener we used the JQuery for onclick -->
+                    <button class="Sign-up-btn" type="button" onclick="window.location.href='/login';" >Sign in </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

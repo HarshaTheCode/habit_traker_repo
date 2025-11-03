@@ -1,0 +1,48 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000; /* Black theme */
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Container styles */
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+}
+
+header, main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Error header styles */
+.error-header h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.error-header h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.suggestions{
+
+    list-style:unset;
+}

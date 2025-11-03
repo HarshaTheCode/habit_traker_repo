@@ -48,8 +48,9 @@ body {
 
 .login-btn   {
     font-size: 15px;
-    background: #2a67f4;
-    color: rgb(255, 255, 255);
+     background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: 2px solid #333;
     width: 100px;
     height: 35px;
     border-radius: 10px;
@@ -60,8 +61,9 @@ body {
 
 .sign-in-btn{
     font-size: 15px;
-    background: #2a67f4;
-    color: rgb(255, 255, 255);
+     background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: 2px solid #333;
     width: 100px;
     height: 35px;
     border-radius: 10px;
@@ -108,12 +110,21 @@ body {
 }
 .try-now{
     font-size: 20px;
-    background: #2a67f4;
-    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: 2px solid #333;
     width: 200px;
     height: 50px;
     border-radius: 10px;
     justify-content: center;
     font-family: Inter, sans-serif;
     cursor: pointer;
+}
+
+.try-now:hover ,
+.login-btn:hover,
+.sign-in-btn:hover{
+    background: #ffffff;
+  
+  color: rgb(4, 4, 4);
 }

@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hatbit Traker</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Login Page</title>
 </head>
+
 <body>
-    
-    <form action="/login" method="post">  
-        <label for="userEmail">Email </label>
-        <input type="email" name="userEmail"  id="userEmail" placeholder="your Email gose hear" >
-        <label for="userPassword"  >Password</label>
-        <input type="password" name="userPassword" id="userPassword" placeholder="your password gose hear ">
-        <input type="submit" class="submit" id="submit" value="submit">
-    </form>
+    <div class="login-section">
+
+        <div class="login">
+            <form action="/login" method="post">
+                <h1>Sing in</h1>
+                <p> Sing in to continue </p>
+                <div class="data-form">
+                    <div class="username-control">
+                        <label for="userEmail">UserEmail:</label>
+                        <input type="text" id="userEmail" name="userEmail" placeholder="User Email" />
+
+                    </div>
+                    <div class="pass-control">
+                        <label for="userPassword">Password:</label>
+                        <input type="password" id="userPassword" name="userPassword" placeholder="User password" />
+
+                    </div>
+                </div>
+                <div class="btn-control">
+                    <button type="submit" class="submit-btn">Sign in </button>
+                    <span class="or"> or </span>
+                    <!-- insted of writing the event listener we used the JQuery for onclick -->
+                    <button class="Sign-up-btn" type="button" onclick="window.location.href='/register';" >Sign up </button>
+                </div>
+                
+            </form>
+
+
+           
+        </div>
+    </div>
+
+    <!-- Add the spinner container with class "spinner-container" -->
 </body>
+
 </html>
