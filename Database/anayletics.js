@@ -1,7 +1,6 @@
-import habitcompleted from "./completedHabits.js";
-import mongoose from "mongoose";
+import habitcompleted from "../models/completedHabits.js";
 import jwt from "jsonwebtoken"
-const mongouri = 'mongodb://localhost:27017/habitTraker';
+
 
 
 export const getDailyAnalytics = async (req, res) => {
@@ -10,7 +9,6 @@ export const getDailyAnalytics = async (req, res) => {
           const verify = jwt.verify(token,'secretCode');
           console.log(verify)
     
-       mongoose.connect(mongouri) 
     // Step 1: get today's date range
     const start = new Date();
     start.setHours(0, 0, 0, 0); // 00:00 AM

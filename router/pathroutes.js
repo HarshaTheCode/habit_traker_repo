@@ -1,16 +1,19 @@
-import { createUser } from '../models/createUser.js';
+import { createUser } from '../Database/createUser.js';
 import path from 'path'
 import express from 'express';
-import { createHabit } from '../models/crateHabit.js'
-import { findpassword, finduser } from '../models/findingUser.js';
+import { createHabit, deletedHabit } from '../Database/crateHabit.js'
+import { findpassword, finduser } from '../Database/findingUser.js';
 import jwt from 'jsonwebtoken'
-import { completedHabit } from '../models/createCompletedHabits.js';
-import { habitsfetching } from '../models/habitsfeching.js';
-import { getDailyAnalytics } from '../models/anayletics.js';
+import { completedHabit } from '../Database/createCompletedHabits.js';
+import { habitsfetching } from '../Database/habitsfeching.js';
+import { getDailyAnalytics } from '../Database/anayletics.js';
+
+
 
 
 export const routes = express.Router();
 const __dirname = import.meta.dirname;
+
 
 
 
@@ -115,7 +118,7 @@ routes.post('/habitcompleted',(req,res)=>{
 
     completedHabit(req,res);
     const filepath= path.join(__dirname,'../public','homepage.html')
-    res.sendFile(filepath)
+    res.redirect('/homepage.html')
 })
 
 routes.get('/habitsData', async(req,res)=>{
@@ -131,3 +134,12 @@ routes.get('/any', async(req,res)=>{
     console.log({info, completions})
   res.send({info, completions})
 });
+
+
+
+routes.post('/deletehabit',(req,res)=>{
+    console.log("running")
+    deletedHabit(req,res);
+    const filepath= path.join(__dirname,'../public','homepage.html')
+    res.sendFile(filepath)
+})

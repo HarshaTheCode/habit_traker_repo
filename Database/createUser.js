@@ -1,11 +1,8 @@
 import mongoose from "mongoose";
-import user from './user.js';
+import user from '../models/user.js';
 import jwt from 'jsonwebtoken'
 
-const mongouri = 'mongodb://localhost:27017/habitTraker';
-
 export async function createUser(req, res) {
-    mongoose.connect(mongouri)
 
     const userdata = await new user({
         username: req.body.username,
@@ -28,4 +25,6 @@ export async function createUser(req, res) {
     console.log("insertion completed")
     return true;
 }
+
+
 

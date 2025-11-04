@@ -1,13 +1,10 @@
 import mongoose from "mongoose";
-import user from "./user.js";
+import user from "../models/user.js";
 import jwt from "jsonwebtoken";
-import habits from "./habits.js";
+import habits from "../models/habits.js";
 
 
-const mongouri = 'mongodb://localhost:27017/habitTraker';
 
-
-await mongoose.connect(mongouri)
 
  export  async function habitsfetching(req,res){
     console.log("functions started")

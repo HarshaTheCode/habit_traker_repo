@@ -1,11 +1,7 @@
 import mongoose from "mongoose";
-import user from "./user.js";
+import user from "../models/user.js";
 
 
-const mongouri = 'mongodb://localhost:27017/habitTraker';
-
-
-await mongoose.connect(mongouri)
 
  export  async function finduser(req, res ){
 

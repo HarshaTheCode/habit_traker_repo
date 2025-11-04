@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
-import habitcompleted from "./completedHabits.js";
-import user from "./user.js";
+import habitcompleted from "../models/completedHabits.js";
+import user from "../models/user.js";
 import  jwt  from "jsonwebtoken";
 
-const mongouri = 'mongodb://localhost:27017/habitTraker';
 
 
 export async function completedHabit( req,res){
@@ -13,7 +12,6 @@ export async function completedHabit( req,res){
   
   console.log(req.body)
   console.log(verify)
-   mongoose.connect(mongouri)
 
  
  const userdataid= await user.findOne({Email:verify.Email}).select("_id")

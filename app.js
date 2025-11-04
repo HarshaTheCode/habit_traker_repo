@@ -1,7 +1,9 @@
 import express from 'express'
 import { routes } from './router/pathroutes.js';
 import cookieParser from 'cookie-parser';
+import connectdb from './models/connectdb.js';
 
+connectdb(); 
 
 const app = express();
 
@@ -20,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 app.use('/',routes)
+
 
 app.use(express.static('public')); // This line serves static files from the 'public' directory
 
