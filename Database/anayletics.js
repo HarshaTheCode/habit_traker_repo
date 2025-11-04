@@ -8,7 +8,6 @@ export const getDailyAnalytics = async (req, res) => {
   
   const token  = req.cookies.Token;
           const verify = jwt.verify(token, process.env.JWT_SECRET);
-          console.log(verify)
     
     // Step 1: get today's date range
     const start = new Date();
@@ -62,9 +61,7 @@ export const getDailyAnalytics = async (req, res) => {
     // Step 3: prepare the response
     const totalCompletions = todayData.length;
 
-    console.log(totalCompletions)
-    console.log(start.toDateString())
-    console.log(todayData)
+    // console.info(`Fetched ${totalCompletions} completions for user ${verify.Email} on ${start.toDateString()}`);
 
     return todayData;
   };

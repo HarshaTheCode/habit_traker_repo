@@ -27,8 +27,9 @@ app.use(cookieParser());
 app.use('/',routes)
 
 
-app.use(express.static('public')); // This line serves static files from the 'public' directory
+app.use(express.static('public'));
 
-app.listen('3000', () => {
-    console.log("app was  Running at http://localhost:3000/")
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });

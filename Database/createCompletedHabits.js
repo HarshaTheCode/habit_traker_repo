@@ -8,15 +8,8 @@ import  jwt  from "jsonwebtoken";
 export async function completedHabit( req,res){
   const token = req.cookies.Token;
   const verify = jwt.verify(token ,process.env.JWT_SECRET)
-  
-  
-  console.log(req.body)
-  console.log(verify)
 
- 
  const userdataid= await user.findOne({Email:verify.Email}).select("_id")
- 
-console.log(userdataid)
  
   const completedhabitdata=  new habitcompleted({
   
@@ -25,11 +18,9 @@ console.log(userdataid)
      habitId: req.body.habitId
 
     })
-
-    console.log(completedhabitdata);
  
    await completedhabitdata.save(); 
-    console.log("insertion completed")
+    // console.log(`Marked habit ${req.body.habitId} as completed for user ${verify.Email}`);
 
 
   
