@@ -33,8 +33,8 @@ routes.get('/login', (req, res) => {
 })
 
 routes.get('/logout',(req,res)=>{
-    res.clearCookie("Token");
-    res.send("your loged out")
+    res.clearCookie("Token");const filepath= path.join(__dirname,'../public','landing.html')
+    res.sendFile(filepath)
 })
 
 routes.post('/login', async (req, res) => {
@@ -107,13 +107,15 @@ routes.post('/createHabit', (req, res) => {
 
     createHabit(req, res);
     console.log("Habit crated ")
-    res.send("perfect")
+    const filepath= path.join(__dirname,'../public','homepage.html')
+    res.sendFile(filepath)
 })
 
 routes.post('/habitcompleted',(req,res)=>{
 
     completedHabit(req,res);
-    res.send("habit completed")
+    const filepath= path.join(__dirname,'../public','homepage.html')
+    res.sendFile(filepath)
 })
 
 routes.get('/habitsData', async(req,res)=>{

@@ -6,6 +6,7 @@
 
 body {
     background: #000000;
+    font-family: cursive;
 }
 
 .navbar {
@@ -14,6 +15,7 @@ body {
     width: 100%;
     height: 80px;
     background: #000000;
+    margin-top: 2vh;
     align-items: center;
     justify-content: space-around;
 }
@@ -55,7 +57,7 @@ body {
     height: 35px;
     border-radius: 10px;
     justify-content: center;
-    font-family: Inter, sans-serif;
+    font-family: cursive;
     cursor: pointer;
 }
 
@@ -68,18 +70,18 @@ body {
     height: 35px;
     border-radius: 10px;
     justify-content: center;
-    font-family: Inter, sans-serif;
+    font-family: cursive;
     cursor: pointer;
 }
 
 .hero-section{
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: whitesmoke;
     margin-left: 5%;
-    padding-left: 20%;
+    padding-left: 16%;
     width: 80%;
     font-size: 45px;
 }
@@ -90,7 +92,7 @@ body {
     padding-left: 20%;
     margin-left: 12%;
     font-size: 15px;
-    font-family: Inter, sans-serif;
+    font-family: cursive;
 }
 
 .hero-para-2{
@@ -100,7 +102,7 @@ body {
     padding-left: 30%;
     margin-left: 9%;
     font-size: 15px;
-    font-family: Inter, sans-serif;
+    font-family: cursive;
     
 }
 .Try-now-section{
@@ -117,7 +119,7 @@ body {
     height: 50px;
     border-radius: 10px;
     justify-content: center;
-    font-family: Inter, sans-serif;
+    font-family: cursive;
     cursor: pointer;
 }
 

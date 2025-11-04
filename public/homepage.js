@@ -82,29 +82,29 @@ async function fetchCompletions() {
       habit.textContent = `Habit: ${item.habit.habit}`;
       
 
-
       const freq = document.createElement("li");
       freq.className = "frequency";
       freq.textContent = `Frequency: ${item.habit.frequency}`;
-
-      const user = document.createElement("li");
-      user.className = "username";
-      user.textContent = `User: ${item.user.username}`;
+      
+      // fecting the user name to show 
+      // const user = document.createElement("li");
+      // user.className = "username";
+      // user.textContent = `User: ${item.user.username}`;
 
       const date = document.createElement("li");
       date.className = "date";
       date.textContent = `Completed at: ${new Date(item.completedAt).toLocaleString()}`;
 
-      const brake=document.createElement("hr")
+      // const brake=document.createElement("hr")
 
 
       card.appendChild(Ullist);
       Ullist.appendChild(habit);
       Ullist.appendChild(freq);
-      Ullist.appendChild(user);
+      // Ullist.appendChild(user); // if we need we can show the user name also 
       Ullist.appendChild(date);
       list.appendChild(card);
-      list.appendChild(brake);
+      // list.appendChild(brake);
 
 
 
