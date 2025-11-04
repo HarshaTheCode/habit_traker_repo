@@ -7,7 +7,7 @@ import  jwt  from "jsonwebtoken";
 
 export async function completedHabit( req,res){
   const token = req.cookies.Token;
-  const verify = jwt.verify(token ,"secretCode")
+  const verify = jwt.verify(token ,process.env.JWT_SECRET)
   
   
   console.log(req.body)
@@ -35,14 +35,3 @@ console.log(userdataid)
   
     return  true;
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
 
-const mongouri = 'mongodb://localhost:27017/habitTraker';
-
 async function connect() {
+    const mongouri = process.env.MONGO_URI 
     
-    mongoose.connect(mongouri) 
+    mongoose.connect(mongouri)
+    console.log(mongouri)
     console.log("db connected ")
 }
 

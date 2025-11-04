@@ -15,7 +15,7 @@ export async function createUser(req, res) {
 
         Email: req.body.userEmail,
         
-    }, "secretCode")
+    }, process.env.JWT_SECRET)
     console.log(token)
     res.cookie("Token", token)
 
@@ -25,6 +25,3 @@ export async function createUser(req, res) {
     console.log("insertion completed")
     return true;
 }
-
-
-

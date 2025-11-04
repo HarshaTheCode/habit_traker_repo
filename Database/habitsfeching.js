@@ -9,7 +9,7 @@ import habits from "../models/habits.js";
  export  async function habitsfetching(req,res){
     console.log("functions started")
     const token  = req.cookies.Token;
-        const verify = jwt.verify(token,'secretCode');
+        const verify = jwt.verify(token, process.env.JWT_SECRET);
         const userdata= await user.findOne({Email:verify.Email}).select("habits")
         console.log(userdata)
         if(userdata!=null){

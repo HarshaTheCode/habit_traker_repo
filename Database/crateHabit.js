@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 
 export async function createHabit(req, res) {
   const token = req.cookies.Token;
-  const verify = jwt.verify(token, "secretCode")
+  const verify = jwt.verify(token, process.env.JWT_SECRET)
   console.log(verify)
 
   const userdataid = await user.findOne({ Email: verify.Email }).select("_id")
@@ -39,7 +39,7 @@ export async function createHabit(req, res) {
 export async function deletedHabit(req, res) {
 
   const token = req.cookies.Token;
-  const verify = jwt.verify(token, "secretCode")
+  const verify = jwt.verify(token, process.env.JWT_SECRET)
   const userid = req.body.habitId;
   console.log(verify)
   console.log(req.body)
@@ -62,9 +62,23 @@ export async function deletedHabit(req, res) {
 /*------------------------------------------------------------------------------------------------------- */
 
 
+export async function editHabit( req,res){
 
 
+ 
+ 
+    await habits.updateOne(
+  
+  
+   { _id: req.body.habitId },
+    { $set: { habit: req.body.updatedhabit } },
 
+    );
 
+    console.log("habit updated ");
+ 
+   
 
-
+  
+    return  true;
+}

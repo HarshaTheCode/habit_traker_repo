@@ -1,12 +1,13 @@
 import { createUser } from '../Database/createUser.js';
 import path from 'path'
 import express from 'express';
-import { createHabit, deletedHabit } from '../Database/crateHabit.js'
+import { createHabit, deletedHabit, editHabit } from '../Database/crateHabit.js'
 import { findpassword, finduser } from '../Database/findingUser.js';
 import jwt from 'jsonwebtoken'
 import { completedHabit } from '../Database/createCompletedHabits.js';
 import { habitsfetching } from '../Database/habitsfeching.js';
 import { getDailyAnalytics } from '../Database/anayletics.js';
+import protectRoute from './auth.js';
 
 
 
@@ -48,7 +49,7 @@ routes.post('/login', async (req, res) => {
 
              const token = jwt.sign({
                 Email :req.body.userEmail
-            },"secretCode")
+            },process.env.JWT_SECRET)
                 
                     res.cookie("Token",token)
 
@@ -93,7 +94,7 @@ routes.post('/create', async (req, res) => {
     }
 })
 
-routes.get('/home', (req, res) => {
+routes.get('/home',protectRoute, (req, res) => {
 
     const filepath = path.join(__dirname, '../public', "homepage.html")
 
@@ -102,7 +103,7 @@ routes.get('/home', (req, res) => {
 
 })
 
-routes.post('/createHabit', (req, res) => {
+routes.post('/createHabit',(req, res) => {
 
     createHabit(req, res);
     console.log("Habit crated ")
@@ -113,16 +114,15 @@ routes.post('/createHabit', (req, res) => {
 routes.post('/habitcompleted',(req,res)=>{
 
     completedHabit(req,res);
-    const filepath= path.join(__dirname,'../public','homepage.html')
     res.redirect('/home')
 })
 
-routes.get('/habitsData', async(req,res)=>{
+routes.get('/habitsData',protectRoute ,async(req,res)=>{
     const ids= await habitsfetching(req,res);
     res.send(ids)
 })
 
-routes.get('/any', async(req,res)=>{
+routes.get('/any',protectRoute ,async(req,res)=>{
   console.log("data fetching from POST")
     const info =await getDailyAnalytics(req,res);
     const completions ={count:info.length};
@@ -134,5 +134,10 @@ routes.post('/deletehabit',(req,res)=>{
     console.log("running")
     deletedHabit(req,res);
     const filepath= path.join(__dirname,'../public','homepage.html')
+    res.redirect('/home')
+})
+
+routes.post('/edithabit',(req,res)=>{
+    editHabit(req,res);
     res.redirect('/home')
 })

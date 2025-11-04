@@ -108,20 +108,16 @@ async function fetchHabits() {
 
     editbtn.addEventListener("click", () => {
 
-    
-
         editform.appendChild(edithiddenInput)
         editform.appendChild(edittext)
         editform.appendChild(update)
         editform.appendChild(cancelbtn)
-       
-        console.log("clicked");
-        console.log(clicked);
+
         
-     
+        form.removeChild(button)
+    editdiv.removeChild(deleteBtn);
+    editdiv.removeChild(editbtn);
         
-        
-     
     });
     
     cancelbtn.addEventListener("click",()=>{
@@ -129,6 +125,12 @@ async function fetchHabits() {
       editform.removeChild(edittext)
       editform.removeChild(update)
       editform.removeChild(cancelbtn)
+       
+      
+      form.appendChild(button)
+    editdiv.appendChild(deleteBtn);
+    editdiv.appendChild(editbtn);
+
     })
 
 
